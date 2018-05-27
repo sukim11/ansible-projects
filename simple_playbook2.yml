@@ -1,0 +1,24 @@
+---
+- hosts: webidn
+  tasks: 
+    - name: Copy file ke CentOS 6
+      copy:
+        src: ~/centos6.txt
+        dest: ~/
+        owner: root
+        group: root
+        mode: 0777
+      when: 
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == '6'
+    - name: Copy file ke CentOS 7
+      copy:
+        src: ~/centos7.txt
+        dest: ~/
+        owner: root
+        group: root
+        mode: 0777
+      when: 
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == '7'
+...

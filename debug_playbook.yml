@@ -1,0 +1,8 @@
+---
+- hosts: webidn 
+  tasks: 
+ 
+     - shell: /usr/bin/uptime 
+       register: debug_var 
+     - name: tampilkan output debug 
+       debug: var=debug_var

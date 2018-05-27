@@ -1,0 +1,15 @@
+---
+- hosts: webidn
+  tasks:
+   - name: copy vhost.conf
+     copy:
+      src: ~/vhost.conf
+      dest: "/etc/httpd/conf.d/vhost{{ ansible_hostname }}.conf"
+     notify:
+      - restart_httpd
+#handlers untuk merestart service httpd
+  handlers:
+   - name: restart_httpd
+     service:
+      name: httpd
+      state: restarted

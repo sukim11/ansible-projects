@@ -1,0 +1,4 @@
+---
+- hosts: webidn
+  tasks:
+   - action: shell echo "Hello World"

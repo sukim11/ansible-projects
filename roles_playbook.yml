@@ -1,0 +1,5 @@
+---
+
+- hosts: devops
+  roles: 
+    - role: nginx

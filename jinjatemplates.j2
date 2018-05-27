@@ -1,0 +1,47 @@
+--== Ansible Jinja2 if elif else statement ==--
+
+             {% if ansible_hostname == "host1" -%}
+                Ini adalah host1
+             {% elif ansible_hostname == "host2" -%}
+                Ini adalah host2
+             {% else -%}
+                Ini bukan host1 dan host2 melainkan {{ ansible_hostname }}
+             {% endif %}
+
+--== Ansible Jinja2 for statement ==--
+
+             {% for daftarip in ansible_all_ipv4_addresses -%}
+                Daftar IP Address {{ loop.index }} = {{ daftarip }}
+             {% endfor %}
+
+--== Ansible Jinja2 for with break statement ==--
+
+             {% for nilai in range(10, 0, -1) -%}
+                {% if nilai == 5 -%}
+                   {% break %}
+                {% endif -%}
+                {{ nilai }}
+             {% endfor %}
+
+--== Ansible Jinja2 for with continue statement ==--
+
+             {% for nilai in range(10, 0, -1) -%}
+                {% if nilai is odd -%}
+                   {% continue %}
+                {% endif -%}
+                {{ nilai }}
+             {% endfor %}
+
+
+--== Ansible Jinja2 filters ==--
+
+             --== nilai minimum dari [1, 2, 3, 4, 5] ==--
+             {{ [1, 2, 3, 4, 5] | min }}
+
+
+             --== nilai maksimum dari [1, 2, 3, 4, 5] ==--
+             {{ [1, 2, 3, 4, 5] | max }}
+
+              
+             --== nama random dari ['ani, 'budi', 'adit',] ==--
+             {{ ['ani', 'budi', 'adit'] | random}}

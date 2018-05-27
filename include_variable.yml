@@ -1,0 +1,23 @@
+---
+- hosts: webidn
+  tasks: 
+    - name: gather variables
+      include_vars:
+        file: variable.yml
+        name: newvariable
+
+    - name: install dns server dan ftp server
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items: 
+          - "{{ newvariable.dnsserver}}"
+          - "{{ newvariable.ftpserver}}"
+    - name: start dns server dan ftp server
+      service: 
+        name: "{{ item }}"
+        state: started
+      with_items: 
+          - "{{ newvariable.dnsservd }}" 
+          - "{{ newvariable.ftpservd }}" 
+...

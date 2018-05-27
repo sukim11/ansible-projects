@@ -1,0 +1,10 @@
+---
+- hosts: webidn
+  vars:
+    web_pkg: httpd
+  tasks:
+    - name: Install apache 
+      yum: 
+        name: "{{ web_pkg }}" 
+        state: latest
+...

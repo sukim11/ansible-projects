@@ -1,0 +1,8 @@
+---
+- hosts: webidn
+  tasks: 
+    - name: Tampilkan hostname dan IP Address
+      debug:
+        msg: >
+         Default IPv4 address dari {{ ansible_hostname }} adalah {{ ansible_default_ipv4.address }}
+...

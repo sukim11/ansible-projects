@@ -1,0 +1,8 @@
+---
+- hosts: webidn
+  tasks: 
+    - name: Ansible Jinja2 template
+      template: 
+        src: jinjatemplates.j2
+        dest: "/tmp/{{ ansible_hostname }}_jinjatemplate.out"
+        trim_blocks: true

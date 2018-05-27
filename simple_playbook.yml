@@ -1,0 +1,15 @@
+---
+- hosts: webidn
+  tasks:
+    - name: Install Samba Service
+      yum:
+          name: samba
+          state: latest
+    - name: Start Samba Service
+      service:
+          name: "{{ item }}"
+          state: started
+      with_items:
+          - 'smb'
+          - 'nmb'
+...
