@@ -1,5 +1,6 @@
 ---
 - hosts: 192.168.100.82
+  become_user: root
   tasks:
     - name: Install Samba Service
       yum:
