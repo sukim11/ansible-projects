@@ -1,5 +1,7 @@
 ---
 - hosts: 192.168.100.82
+  become: yes
+  become_user: root
   vars: 
      doc_root: /var/www/html/{{ ansible_hostname }}_web
      vhost_dir: /etc/httpd/conf.d
