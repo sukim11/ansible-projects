@@ -1,5 +1,5 @@
 ---
-- hosts: GroupServer
+- hosts: 192.168.100.82
   tasks:
     - name: Install Samba Service
       yum:
