@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.100.82
+- hosts: host
   become_user: root
   tasks:
     - name: Install Samba Service
